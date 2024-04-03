@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Party Invitation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #cb0eac;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .invitation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .invitation h1, .invitation h2, .invitation h3, .invitation p {
+    margin: 5px 0;
+    padding: 0 10px;
+  }
+
+  @keyframes twinkling {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+  }
+
+  .star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    animation: twinkling 2s infinite ease-in-out;
+    border-radius: 50%;
+  }
+
+  .responsive-iframe {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
+
+  .responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+</head>
+<body>
+<div class="invitation">
+  <h1>OFICJALNE ZAPROSZENIE</h1>
+  <h2>Nasza parapetówka odbędzie się w najblizszą Sobotę 06.04.2024</h2>
+  <h3>Godzina: 20:00</h3>
+  <p>Przyjdz i baw się z nami na Krasnobrodzkiej 17/73. [Klatka 2, parter]</p>
+  <p>Paulina i Mateusz</p>
+  <div class="responsive-iframe"><iframe allow="fullscreen" frameborder="0" src="https://giphy.com/embed/G96zgIcQn1L2xpmdxi/video"></iframe></div>
+</div>
+
+<script>
+  function createStars() {
+    const starsAmount = Math.min(window.innerWidth, 100); // Reducing the number of stars on smaller screens
+    for (let i = 0; i < starsAmount; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.left = Math.random() * 100 + "vw";
+      star.style.top = Math.random() * 100 + "vh";
+      star.style.animationDuration = 2 + Math.random() * 3 + "s";
+      document.body.appendChild(star);
+    }
+  }
+
+  createStars();
+</script>
+</body>
+</html>
